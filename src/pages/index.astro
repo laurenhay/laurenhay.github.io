@@ -2,37 +2,112 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout title="Lauren Hay — Home">
-  <section class="grid" style="grid-template-columns: 160px 1fr; align-items:start;">
-    <img src="public/IMG_1783.JPG" alt="Headshot of Lauren Hay" style="width:160px; height:160px; object-fit:cover; border-radius:16px; border:1px solid #e6e6e6;" />
-    <div class="card">
-      <h1 style="margin-top:0;">Hi — I’m Lauren Hay.</h1>
-      <p>
-        I’m a particle physicist / data scientist. I work on collider physics, jet substructure,
-        and large-scale analysis workflows.
+  <section class="hero">
+    <img class="headshot" src="/IMG_1783.JPG" alt="Headshot of Lauren Hay" />
+
+    <div class="intro">
+      <h1>Lauren Hay</h1>
+      <p class="subtitle">
+        Particle physicist and data analyst working on collider physics, jet substructure,
+        and scalable analysis workflows.
       </p>
-      <p style="margin-bottom:0;">
-        <a href="/projects">Projects</a> · <a href="/cv">CV</a> · <a href="/blog">Blog</a>
-      </p>
+
+      <div class="quick">
+        <a class="pill" href="/projects">Projects</a>
+        <a class="pill" href="/cv">CV</a>
+        <a class="pill" href="/blog">Blog</a>
+        <!-- add Google Scholar / ORCID / LinkedIn as needed -->
+      </div>
+
+      <div class="meta">
+        <div><span class="k">Affiliation:</span> Brown University</div>
+        <div><span class="k">Email:</span> <a href="mailto:you@renhay.com">laurenhay@brown.edu</a></div>
+      </div>
     </div>
   </section>
 
-  <section class="grid" style="margin-top:22px;">
+  <section class="grid" style="margin-top: 22px;">
     <div class="card">
-      <h2 style="margin-top:0;">Current focus</h2>
+      <h2>Research interests</h2>
       <ul>
-        <li>Jet physics & substructure measurements</li>
-        <li>Unfolding / response-matrix methods</li>
-        <li>HPC + modern Python tooling for analysis</li>
+        <li>Jet substructure and QCD measurements</li>
+        <li>Unfolding / response-matrix techniques</li>
+        <li>High-throughput analysis on HPC</li>
       </ul>
     </div>
 
     <div class="card">
-      <h2 style="margin-top:0;">Contact</h2>
+      <h2>Selected highlights</h2>
       <ul>
-        <li>Email: <a href="mailto:you@renhay.com">you@renhay.com</a></li>
-        <li>GitHub: <a href="https://github.com/laurenhay">github.com/laurenhay</a></li>
-        <li>LinkedIn / Scholar: (add links)</li>
+        <li>Add 2–4 bullets (papers, talks, software, awards)</li>
+        <li>Keep each bullet short and scannable</li>
       </ul>
     </div>
   </section>
+
+  <style>
+    .hero{
+      display:grid;
+      grid-template-columns: 260px 1fr; /* bigger headshot column */
+      gap: 22px;
+      align-items: start;
+    }
+
+    .headshot{
+      width: 260px;
+      height: 320px;            /* portrait-ish */
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid #e5e7eb;
+      background: #f3f4f6;
+    }
+
+    .intro .subtitle{
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: #374151;
+      max-width: 62ch;
+    }
+
+    .quick{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 12px 0 14px;
+    }
+
+    .pill{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid #e5e7eb;
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: #111827;
+      background: #fff;
+    }
+    .pill:hover{
+      background: #f9fafb;
+    }
+
+    .meta{
+      border-top: 1px solid #e5e7eb;
+      padding-top: 12px;
+      color: #4b5563;
+    }
+    .k{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    @media (max-width: 800px){
+      .hero{ grid-template-columns: 1fr; }
+      .headshot{
+        width: min(320px, 100%);
+        height: auto;
+        aspect-ratio: 4 / 5;
+      }
+    }
+  </style>
 </BaseLayout>

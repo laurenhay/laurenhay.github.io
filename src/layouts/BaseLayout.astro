@@ -8,21 +8,73 @@ const { title = "Lauren Hay" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
+
     <style>
-      :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-      body { margin:0; }
-      main { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
-      .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-      .card { border: 1px solid #e6e6e6; border-radius: 16px; padding: 18px; }
-      .grid { display:grid; gap:18px; }
+      :root{
+        --bg: #ffffff;
+        --text: #111827;          /* near-black */
+        --muted: #4b5563;         /* slate */
+        --border: #e5e7eb;        /* light gray */
+        --card: #ffffff;
+        --link: #1f2937;
+        --maxw: 980px;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body{
+        margin:0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Typography */
+      h1, h2, h3 {
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+        margin: 0 0 0.6rem 0;
+      }
+      h1 { font-size: clamp(1.9rem, 3vw, 2.6rem); }
+      h2 { font-size: 1.25rem; margin-top: 0; }
+      p { margin: 0 0 1rem 0; color: var(--muted); }
+      ul { margin: 0.25rem 0 0 1.0rem; color: var(--muted); }
+      li { margin: 0.3rem 0; }
+
+      a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+      a:hover { text-decoration-thickness: 2px; }
+
+      /* Layout */
+      .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
+      header { border-bottom: 1px solid var(--border); background: #fff; }
+      main { padding: 34px 0 64px; }
+
+      .card{
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px 18px;
+      }
+
+      .grid { display: grid; gap: 18px; }
     </style>
   </head>
+
   <body>
-    <header class="container">
-      <Nav />
+    <header>
+      <div class="wrap">
+        <Nav />
+      </div>
     </header>
+
     <main>
-      <slot />
+      <div class="wrap">
+        <slot />
+      </div>
     </main>
   </body>
 </html>
